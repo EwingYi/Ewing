@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="back_input">#363636</color>
+    <color name="btnblue">#009cff</color>
+    <color name="btndeepblue">#0066cc</color>
+    <color name="btnorange">#E16E37</color>
+    <color name="btnyellow">#ffb119</color>
+    <color name="btngreen">#42A259</color>
+    <color name="btngreen1">#2E703C</color>
+    <color name="btnred1">#91201A</color>
+    <color name="btncash">#ec1b1d</color>
+    <color name="btncash1">#ff5e5f</color>
+    <color name="btngray">#555555</color>
+    <color name="dash">#484848</color>
+    <color name="white">#FFFFFF</color>
+    <color name="whiteall">#00FFFFFF</color>
+    <color name="white_rice">#CDCCCC</color>
+    <color name="white_liner">#363636</color>
+    <color name="white_liner_dialog">#7C7C7C</color>
+    <color name="gary">#999999</color>
+    <color name="register_bg">#252525</color>
+    <color name="sauces_bg">#282828</color>
+    <color name="text_color">#CDCBCB</color>
+    <color name="edit_color">#858687</color>
+    <color name="translucent_background">#90000000</color>
+    <color name="register_login_tv">#Ef662f</color>
+
+
+    <color name="clear_red">#9c0f17</color>
+    <color name="send_white">#f2f4f5</color>
+    <color name="translucent_dialog">#59000000</color>
+
+    <color name="dialog_content_color">#d6d7d8</color>
+    <color name="yes_green">#14983E</color>
+    <color name="new_pwd_tv_color">#777575</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="black_15">#D8000000</color>
+    <color name="select_color_gary">#dcdedf</color>
+    <color name="date_gary">#898a8a</color>
+    <color name="today_white">#edeeee</color>
+    <color name="hint_textcolor">#7a7979</color>
+    <!-- Toast background color -->
+    <color name="toast_background">#c0000000</color>
+    <color name="settings_button_color">#2b71c2</color>
+    <color name="textedit_hint">#999999</color>
+    <!-- CustomAlertDialog color -->
+    <color name="sweet_dialog_bg_color">#FFFFFF</color>
+    <color name="error_stroke_color">#FF0000</color>
+    <color name="gray_btn_bg_pressed_color">#B6B6B6</color>
+    <color name="gray_btn_bg_color">#D0D0D0</color>
+    <color name="cancel_button_text">#333333</color>
+    <color name="white_text">#f7f7f7</color>
+
+    <!-- Cashier color -->
+    <color name="color_007138">#007138</color>
+    <color name="color_ab9f1d">#ab9f1d</color>
+    <color name="color_707070">#707070</color>
+    <color name="color_1b9efc">#1b9efc</color>
+    <color name="color_d7d7d7">#d7d7d7</color>
+    <color name="color_0056a4">#0056a4</color>
+    <color name="color_9c0f17">#9c0f17</color>
+    <color name="color_f8424c">#f8424c</color>
+    <color name="color_00a453">#00a453</color>
+    <color name="color_f84751">#f84751</color>
+    <color name="color_636363">#636363</color>
+    <color name="color_ef662f">#ef662f</color>
+    <color name="color_292829">#292829</color>
+    <color name="color_7d7d7d">#7d7d7d</color>
+    <color name="color_c6c7c8">#c6c7c8</color>
+
+    <color name="color_d2d3d4">#d2d3d4</color>
+    <color name="color_f6f6f6">#f6f6f6</color>
+    <color name="color_ebebeb">#ebebeb</color>
+    <color name="color_9c9d9d">#9c9d9d</color>
+    <color name="color_f3f5f6">#f3f5f6</color>
+    <color name="color_fff69f">#FFF69F</color>
+    <color name="color_00A54F">#00A54F</color>
+    <color name="color_f8f8f8">#f8f8f8</color>
+    <color name="color_f4f2f2">#f4f2f2</color>
+    <color name="color_3b3b3b">#3b3b3b</color>
+    <color name="color_080808">#080808</color>
+    <color name="color_e1e3e4">#e1e3e4</color>
+    <color name="color_202020">#202020</color>
+    <color name="color_f1f3f4">#f1f3f4</color>
+    <color name="color_f7f3f3">#f7f3f3</color>
+    <color name="color_eff5f2">#eff5f2</color>
+    <color name="color_db0411">#db0411</color>
+    <color name="color_fe2306">#fe2306</color>
+    <color name="color_f1f1f1">#f1f1f1</color>
+    <color name="color_f0f1f1">#f0f1f1</color>
+    <color name="color_009cff">#009cff</color>
+    <color name="color_363636">#363636</color>
+    <color name="color_464646">#464646</color>
+    <color name="color_f7f6f6">#f7f6f6</color>
+    <color name="color_f5f2f2">#f5f2f2</color>
+    <color name="color_dcdedf">#dcdedf</color>
+    <color name="color_fd4646">#fd4646</color>
+    <color name="color_cdcbcb">#cdcbcb</color>
+    <color name="color_716cf0">#716cf0</color>
+    <color name="color_cc2f38">#cc2f38</color>
+    <color name="color_fff02a">#fff02a</color>
+    <color name="color_B056F9">#B056F9</color>
+    <color name="color_E47037">#E47037</color>
+    <color name="color_B5B5B5">#B5B5B5</color>
+    <color name="color_EB501B">#EB501B</color>
+    <color name="color_212700">#212700</color>
+    <color name="color_2e2d2d">#2e2d2d</color>
+    <color name="ksw_md_ripple_normal">#1E000000</color>
+    <color name="ksw_md_ripple_checked">#33019285</color>
+
+    <color name="ksw_md_solid_shadow">#33000000</color>
+
+    <color name="ksw_md_solid_normal">#ECECEC</color>
+    <color name="ksw_md_solid_checked">#019285</color>
+    <color name="ksw_md_solid_disable">#FFFFFF</color>
+    <color name="ksw_md_solid_checked_disable">#aaaaaa</color>
+    <color name="end_of_day_title">#f0f1f2</color>
+    <color name="end_of_day_header_text_black">#373636</color>
+    <color name="end_of_day_header_text_white">#f1f2f3</color>
+    <color name="end_of_day_header_text_gray">#464646</color>
+    <color name="end_of_day_time_text_gray">#8f9091</color>
+    <color name="end_of_day_white_liner">#33000000</color>
+    <color name="end_of_day_red_text">#f94a4a</color>
+    <color name="end_of_day_report_item_green">#005952</color>
+    <color name="color_00cdcbcb">#33000000</color>
+
+    <color name="color_009AFF">#009AFF</color>
+    <color name="color_00A554">#00A554</color>
+    <color name="color_7269F5">#7269F5</color>
+    <color name="color_CE2D33">#CE2D33</color>
+    <color name="color_F16721">#F16721</color>
+    <color name="color_FFF100">#FFF100</color>
+    <color name="color_9C0F17">#9C0F17</color>
+    <color name="un_clickable">#888888</color>
+
+    <color name="color_EF652F">#EF652F</color>
+    <color name="color_008080"> #008080</color>
+    <color name="color_wrong_hint"> #e43740</color>
+
+</resources>
