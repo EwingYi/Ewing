@@ -1,6 +1,7 @@
 package com.example.myapplication.bean
 
 import com.chad.library.adapter.base.entity.MultiItemEntity
+import java.io.Serializable
 
 /**
  *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~         
@@ -10,17 +11,11 @@ import com.chad.library.adapter.base.entity.MultiItemEntity
  *
  *
  */
-class TestBean(type: Int) : MultiItemEntity {
+class TestBean : Serializable {
 
-    override fun getItemType(): Int {
-        return itemType
-    }
-
-    companion object {
         val VIEW_HEAD = 99 // head
         val IMG_VIEW = 0
         val TEXT_VIEW = 1
         val IMG_TEXT_VIEW = 2
 
-    }
 }
