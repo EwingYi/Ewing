@@ -438,3 +438,5 @@ fun listStudy(){
     }
     //这里的 downTo 以及上面的 step 都叫做「中缀表达式」
 }
+
+fun test(){}
