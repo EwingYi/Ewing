@@ -51,15 +51,16 @@ abstract class AbstractActivity : AppCompatActivity() {}
 //var 是 variable 的缩写， val 是 value 的缩写
 /**final 变成了 val。
 Kotlin 函数参数默认是 val 类型，所以参数前不需要写 val 关键字，Kotlin 里这样设计的原因是保证了参数不会被修改，而 Java 的参数可修改（默认没 final 修饰）会增加出错的概率。*/
-fun finalTest(){
+fun finalTest() {
     val fina1 = 1
+
     //           👇 参数是没有 val 的
     fun method(final2: String) {
         val final3 = "The parameter is $final2"
     }
 }
 
-class ValTest(){
+class ValTest() {
     //val 和 final 还是有一点区别的，虽然 val 修饰的变量不能二次赋值，但可以通过自定义变量的 getter 函数，让变量每次被访问时，返回动态获取的值
     private val items = mutableListOf<String>()
 
@@ -80,8 +81,9 @@ Java 中的 Object 在 Kotlin 中变成了 Any，和 Object 作用一样：作�
 object Sample {
     val name = "A name"
 }
+
 //在代码中如果要使用这个对象，直接通过它的类名就可以访问：
-fun getSample(){
+fun getSample() {
     Sample.name
 }
 //其实就是单例了已经
@@ -126,6 +128,7 @@ open class A {
 interface B {
     fun interfaceMethod()
 }
+
 object C : A(), B {
 
     override fun method() {}
@@ -135,7 +138,7 @@ object C : A(), B {
 //为什么 object 可以实现接口呢？简单来讲 object 其实是把两步合并成了一步，既有 class 关键字的功能，又实现了单例，这样就容易理解了
 
 /**匿名类*/
-val listener = object: ViewPager.SimpleOnPageChangeListener() {
+val listener = object : ViewPager.SimpleOnPageChangeListener() {
     override fun onPageSelected(position: Int) {
         // override
     }
@@ -151,13 +154,15 @@ class Companion {
         var c: Int = 0
     }
 }
+
 //companion 可以理解为伴随、伴生，表示修饰的对象和外部类绑定
 //一个类中最多只可以有一个伴生对象
 //companion object就是一个伴生对象 对象里可以有多个变量
 //这种伴生对象在调用的时候:
-fun getCompanionObj(){
+fun getCompanionObj() {
     Companion.c
 }
+
 //所以，当有 companion 修饰时，对象的名字也可以省略掉
 class CompanionChange {
     //              👇 B 没了
@@ -170,7 +175,8 @@ class CompanionChange {
 //Java 中的静态变量和方法，在 Kotlin 中都放在了 companion object 中。因此 Java 中的静态初始化在 Kotlin 中自然也是放在 companion object 中的，像类的初始化代码一样，由 init 和一对大括号表示
 class JingTaiClass {
     companion object {
-        init { }
+        init {
+        }
     }
 }
 
@@ -208,16 +214,61 @@ class StaticTest {
 //除此之外还有一个区别: Kotlin 中只有基本类型和 String 类型可以声明成常量
 
 
-
 /**init*/
 /**Kotlin 的 init 代码块和 Java 一样，都在实例化时执行，并且执行顺序都在构造器之前*/
 class User {
     init {
         // 初始化代码块，先于下面的构造器执行
     }
+
     constructor() {
     }
 }
+
+//Kotlin 和 Java 一样有三种集合类型：List、Set 和 Map，它们的含义分别如下：
+//List 以固定顺序存储一组元素，元素可以重复。
+//Set 存储一组互不相等的元素，通常没有固定顺序。
+//Map 存储 键-值 对的数据集合，键互不相等，但不同的键可以对应相同的值。
+
+//Kotlin 中的 List 多了一个特性：支持 covariant（协变）。也就是说，可以把子类的 List 赋值给父类的 List 变量 。但是数组不支持协变。但是相反的，java的数组可以支持协变，list不支持协变
+fun xieBianFun() {
+    val strs: List<String> = listOf("a", "b", "c")
+    val anys: List<Any> = strs // success
+}
+
+//和数组的区别
+//Kotlin 中数组和 MutableList 的 API 是非常像的，主要的区别是数组的元素个数不能变。那在什么时候用数组呢？
+//这个问题在 Java 中就存在了，数组和 List 的功能类似，List 的功能更多一些，直觉上应该用 List 。但数组也不是没有优势，基本类型 (int[]、float[]) 的数组不用自动装箱，性能好一点。
+//在 Kotlin 中也是同样的道理，在一些性能需求比较苛刻的场景，并且元素类型是基本类型时，用数组好一点。不过这里要注意一点，Kotlin 中要用专门的基本类型数组类 (IntArray FloatArray LongArray) 才可以免于装箱。也就是说元素不是基本类型时，相比 Array，用 List 更方便些。
+
+fun kotlinCreateMap() {
+//    Kotlin 中创建一个 Map：
+    val map = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key4" to 3)
+//    mapOf 的每个参数表示一个键值对，to 表示将「键」和「值」关联
+}
+
+//可变集合/不可变集合
+//上面修改 Map 值的例子中，创建函数用的是 mutableMapOf() 而不是 mapOf()，因为只有 mutableMapOf() 创建的 Map 才可以修改。Kotlin 中集合分为两种类型：只读的和可变的。这里的只读有两层意思：
+//集合的 size 不可变
+//集合中的元素值不可变
+//以下是三种集合类型创建不可变和可变实例的例子：
+//listOf() 创建不可变的 List，mutableListOf() 创建可变的 List。
+//setOf() 创建不可变的 Set，mutableSetOf() 创建可变的 Set。
+//mapOf() 创建不可变的 Map，mutableMapOf() 创建可变的 Map。
+//可以看到，有 mutable 前缀的函数创建的是可变的集合，没有 mutbale 前缀的创建的是不可变的集合，不过不可变的可以通过 toMutable*() 系函数转换成可变的集合：
+
+
+//Kotlin 中有四种可见性修饰符：
+//public ：公开，可见性最大，哪里都可以引用。
+//private：私有，可见性最小，根据声明位置不同可分为类中可见和文件中可见。
+//protected：保护，相当于 private + 子类可见。
+//internal：内部，仅对 module 内可见。
+//相比 Java 少了一个 default 「包内可见」修饰符，多了一个 internal「module 内可见」修饰符
+
+//Java 的 default「包内可见」在 Kotlin 中被弃用掉了，Kotlin 中与它最接近的可见性修饰符是 internal「module 内可见」。为什么会弃用掉包内可见呢？我觉得有这几个原因：
+//Kotlin 鼓励创建 top-level 函数和属性，一个源码文件可以包含多个类，使得 Kotlin 的源码结构更加扁平化，包结构不再像 Java 中那么重要。
+//为了代码的解耦和可维护性，module 越来越多、越来越小，使得 internal 「module 内可见」已经可以满足对于代码封装的需求。
+
 
 /**类的初始化*/
 /**以下两种 同理 构造器可以简写 编译器推荐第二种写法
@@ -240,6 +291,7 @@ class User1 constructor(var name: String) {
     //次构造器
     constructor(name: String, id: Int) : this(name) {
     }
+
     // 👇 通过上一个次构造器，间接调用主构造器
     //次构造器
     constructor(name: String, id: Int, age: Int) : this(name, id) {
@@ -296,21 +348,26 @@ class User2 private constructor(name: String) {
 fun sayHi(name: String = "world") = println("Hi $name")
 
 //当调用 sayHi 函数时，参数是可选的:
-fun sayHiTest(){
+fun sayHiTest() {
     sayHi("kaixue.io")
     sayHi() // 使用了默认值 "world"
 }
 
 
 fun sayHi(name: String = "world", age: Int) {}
+
 /**命名参数*/
-fun sayHiTestForMingMing(){ sayHi(age = 21) }
+fun sayHiTestForMingMing() {
+    sayHi(age = 21)
+}
+
 /**位置参数 按位置顺序进行参数填写
  * 当一个函数被调用时，如果混用位置参数与命名参数，那么所有的位置参数都应该放在第一个命名参数之前*/
-fun sayHiTestForWeiZhi(){
+fun sayHiTestForWeiZhi() {
 //    sayHi(name = "wo", 21) // 👈 IDE 会报错，Mixing named and positioned arguments is not allowed
     sayHi("wo", age = 21) // 👈 这是正确的写法
 }
+
 /**嵌套函数*/
 fun login(user: String, password: String, illegalStr: String) {
     fun validate(value: String) {
@@ -324,7 +381,7 @@ fun login(user: String, password: String, illegalStr: String) {
 
 
 /**字符串模板*/
-fun stringMoBan(){
+fun stringMoBan() {
     val name = "world"
     //用 '$' 符号加参数的方式
     println("Hi $name")
@@ -343,7 +400,7 @@ fun stringMoBan(){
 /**raw string (原生字符串)*/
 //有时候我们不希望写过多的转义字符，这种情况 Kotlin 通过「原生字符串」来实现
 //用法就是使用一对 """ 将字符串括起来
-fun stringRaw(){
+fun stringRaw() {
     /**
      * \n 并不会被转义
     最后输出的内容与写的内容完全一致，包括实际的换行
@@ -371,7 +428,7 @@ fun stringRaw(){
 //    Hi world!
 //    My name is kotlin.
     /**
-     | 符号为默认的边界前缀，前面只能有空格，否则不会生效
+    | 符号为默认的边界前缀，前面只能有空格，否则不会生效
     输出时 | 符号以及它前面的空格都会被删除
     边界前缀还可以使用其他字符，比如 trimMargin("/")，只不过上方的代码使用的是参数默认值的调用方式
      */
@@ -379,7 +436,7 @@ fun stringRaw(){
 
 
 /**数组与集合的操作符*/
-fun listStudy(){
+fun listStudy() {
     val intArray = intArrayOf(1, 2, 3)
     val strList = listOf("a", "b", "c")
 
@@ -439,4 +496,34 @@ fun listStudy(){
     //这里的 downTo 以及上面的 step 都叫做「中缀表达式」
 }
 
-fun test(){}
+/**Sequence*/
+//了解 Sequence 序列的使用方式
+fun sequenceFun() {
+    //序列 Sequence 又被称为「惰性集合操作」
+    val sequence = sequenceOf(1, 2, 3, 4)
+    val result: Sequence<Int> = sequence
+        .map { i ->
+            println("Map $i")
+            i * 2
+        }
+        .filter { i ->
+            println("Filter $i")
+            i % 3 == 0
+        }
+
+    //惰性的概念首先就是说在打印之前的代码运行时不会立即执行，它只是定义了一个执行流程，只有 result 被使用到的时候才会执行
+    println(result.first()) // 👈 只取集合的第一个元素
+
+    //println 执行时数据处理流程是这样的：
+    //取出元素 1 -> map 为 2 -> filter 判断 2 是否能被 3 整除
+    //取出元素 2 -> map 为 4 -> filter 判断 4 是否能被 3 整除
+    //...
+    //惰性指当出现满足条件的第一个元素的时候，Sequence 就不会执行后面的元素遍历了，即跳过了 4 的遍历。
+}
+//List 是没有惰性的特性的
+
+//Sequence 这种类似懒加载的实现有下面这些优点：
+//一旦满足遍历退出的条件，就可以省略后续不必要的遍历过程。
+//像 List 这种实现 Iterable 接口的集合类，每调用一次函数就会生成一个新的 Iterable，下一个函数再基于新的 Iterable 执行，每次函数调用产生的临时 Iterable 会导致额外的内存消耗，而 Sequence 在整个流程中只有一个。
+//因此，Sequence 这种数据类型可以在数据量比较大或者数据量未知的时候，作为流式处理的解决方案。
+
